@@ -2,6 +2,7 @@ package test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/nitsugaro/go-nstore"
@@ -35,4 +36,23 @@ func TestMain(t *testing.T) {
 	if total != 1 || results[0] == nil {
 		t.Errorf("user not returned in query for name '%s'", randomName)
 	}
+
+	user, _ := storage.Load("845cd3d7-48f2-464e-8410-e2443d883ac4")
+
+	go func() {
+
+		user.LastName = "Romero1"
+
+		storage.Save(user)
+	}()
+
+	go func() {
+		time.Sleep(time.Second)
+
+		user.LastName = "Romero2"
+
+		storage.Save(user)
+	}()
+
+	time.Sleep(time.Second * 3)
 }
