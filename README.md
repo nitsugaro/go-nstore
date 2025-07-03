@@ -1,6 +1,6 @@
 # NStore
 
-NStore is a lightweight storage module that lets you persist structured data as JSON files on disk while keeping them loaded in memory for fast and reusable access. It's ideal for managing dynamic configurations, authentication flows, scripts, or any data that needs simple persistence without the overhead of a traditional database.
+NStore is a lightweight storage module that lets you persist structured data as JSON files on disk while keeping them loaded in memory for fast and reusable access. It's ideal for managing dynamic configurations, keys, scripts, or any data that needs simple persistence without the overhead of a traditional database.
 
 Unlike a database, NStore focuses on simplicity: all data is saved as plain JSON files and automatically loaded into memory, making it globally accessible across your application. This design supports a singleton-like pattern for centralized access without external dependencies.
 
